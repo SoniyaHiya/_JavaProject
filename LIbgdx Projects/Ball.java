@@ -17,7 +17,7 @@ public class Ball {
         y += yDir;
     }
 
-    // 🔥 Overloaded method (NEW)
+    //  Overloaded method (NEW)
     public void move(int speedMultiplier) {
         x += xDir * speedMultiplier;
         y += yDir * speedMultiplier;
@@ -28,7 +28,7 @@ public class Ball {
         g.fillOval(x, y, 15, 15);
     }
 
-    // 🔥 Overloaded draw (NEW)
+    // Overloaded draw (NEW)
     public void draw(Graphics g, Color color) {
         g.setColor(color);
         g.fillOval(x, y, 15, 15);
