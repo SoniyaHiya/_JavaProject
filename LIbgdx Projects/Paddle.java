@@ -13,7 +13,7 @@ public class Paddle {
         if (x > 10) x -= 5;
     }
 
-    // 🔥 Overloaded
+    //  Overloaded
     public void moveLeft(int speed) {
         if (x > 10) x -= speed;
     }
@@ -23,7 +23,7 @@ public class Paddle {
         if (x < 490) x += 5;
     }
 
-    // 🔥 Overloaded
+    //  Overloaded
     public void moveRight(int speed) {
         if (x < 490) x += speed;
     }
@@ -33,7 +33,7 @@ public class Paddle {
         g.fillRect(x, 440, 100, 10);
     }
 
-    // 🔥 Overloaded draw
+    //  Overloaded draw
     public void draw(Graphics g, Color color) {
         g.setColor(color);
         g.fillRect(x, 440, 100, 10);
