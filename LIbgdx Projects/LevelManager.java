@@ -7,7 +7,7 @@ public class LevelManager {
         level = 1;
     }
 
-    // 🔥 Overloaded constructor
+    //  Overloaded constructor
    // public LevelManager(int startLevel) {
      //   level = startLevel;
    // }
