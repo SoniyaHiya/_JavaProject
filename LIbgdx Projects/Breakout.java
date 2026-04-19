@@ -44,7 +44,7 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
             g.setColor(Color.white);
             g.setFont(new Font("Arial", Font.BOLD, 16));
 
-            // 🔥 Score & Level in top-right corner
+            //  Score & Level in top-right corner
             FontMetrics fm = g.getFontMetrics();
 
             String scoreText = "Score: " + score;
@@ -116,7 +116,7 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
                 }
             }
 
-            // 🔥 Level System
+            //  Level System
             if (totalBricks == 0) {
 
                 levelManager.nextLevel();
