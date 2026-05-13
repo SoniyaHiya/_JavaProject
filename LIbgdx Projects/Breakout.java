@@ -5,18 +5,18 @@ import java.io.*;
 
 public class Breakout extends JPanel implements KeyListener, ActionListener {
 
-    Ball ball;
-    Paddle paddle;
-    BrickManager bricks;
-    LevelManager levelManager;
+   private Ball ball;
+   private Paddle paddle;
+   private BrickManager bricks;
+   private  LevelManager levelManager;
 
-    boolean moveLeft = false, moveRight = false;
-    boolean play = true, paused = false;
+   private boolean moveLeft = false, moveRight = false;
+   private boolean play = true, paused = false;
 
-    int score = 0, highScore = 0;
+   private int score = 0, highScore = 0;
 
-    Timer timer;
-    String file = "highscore.txt";
+   private Timer timer;
+   private String highScoreFile = "highscore.txt";
 
     public Breakout() {
 
@@ -33,8 +33,8 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(8, this);
         timer.start();
     }
-
-    public void paint(Graphics g) {
+   @Override
+    protected void paintComponent(Graphics g) {
 
         g.setColor(Color.black);
         g.fillRect(0, 0, 600, 500);
@@ -44,7 +44,7 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
             g.setColor(Color.white);
             g.setFont(new Font("Arial", Font.BOLD, 16));
 
-            //  Score & Level in top-right corner
+            //  Score & Level Display
             FontMetrics fm = g.getFontMetrics();
 
             String scoreText = "Score: " + score;
@@ -182,7 +182,7 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
 
     void loadHighScore() {
         try {
-            File f = new File(file);
+            File f = new File(highScoreFile);
             if (f.exists()) {
                 BufferedReader br = new BufferedReader(new FileReader(f));
                 highScore = Integer.parseInt(br.readLine());
@@ -194,7 +194,7 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
 
     void saveHighScore() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(highScoreFile));
             bw.write(String.valueOf(highScore));
             bw.close();
         } 
@@ -203,14 +203,14 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
 
     public static void main(String[] args) {
 
-        JFrame f = new JFrame("Breakout Game");
-        Breakout g = new Breakout();
+        JFrame frame = new JFrame("Breakout Game");
+        Breakout game = new Breakout();
 
-        f.add(g);
-        f.setSize(600, 500);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setLocationRelativeTo(null);
+        frame.add(game);
+        frame.setSize(600, 500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
-        f.setVisible(true);
+        frame.setVisible(true);
     }
 }
