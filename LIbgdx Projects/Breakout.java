@@ -60,7 +60,8 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
             paddle.draw(g);
             ball.draw(g);
 
-        } else {
+        } 
+        else {
 
             g.setColor(Color.white);
 
@@ -86,27 +87,31 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
 
             ball.move();
 
-            if (moveLeft) paddle.moveLeft();
-            if (moveRight) paddle.moveRight();
+            if (moveLeft) 
+                paddle.moveLeft();
+            if (moveRight) 
+                paddle.moveRight();
 
-            if (ball.x < 0 || ball.x > 585) ball.xDir = -ball.xDir;
-            if (ball.y < 0) ball.yDir = -ball.yDir;
+            if (ball.x < 0 || ball.x > 585) 
+                ball.xDir = -ball.xDir;
+            if (ball.y < 0) 
+                ball.yDir = -ball.yDir;
 
             if (ball.getRect().intersects(paddle.getRect()))
                 ball.yDir = -ball.yDir;
 
             int totalBricks = 0;
 
-            for (int i = 0; i < bricks.bricks.length; i++) {
-                for (int j = 0; j < bricks.bricks[i].length; j++) {
+            for (int i = 0; i < bricks.GetBricks().length; i++) {
+                for (int j = 0; j < bricks.GetBricks()[i].length; j++) {
 
-                    if (bricks.bricks[i][j] == 1) {
+                    if (bricks.GetBricks[i][j] == 1) {
 
                         totalBricks++;
 
                         if (ball.getRect().intersects(bricks.getBrickRect(i, j))) {
 
-                            bricks.bricks[i][j] = 0;
+                            bricks.setBrickValue(0, i, j);
                             score += 10;
 
                             Toolkit.getDefaultToolkit().beep();
@@ -142,17 +147,22 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
 
     public void keyPressed(KeyEvent e) {
 
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) moveLeft = true;
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) moveRight = true;
-        if (e.getKeyCode() == KeyEvent.VK_SPACE) paused = !paused;
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) 
+            moveLeft = true;
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+            moveRight = true;
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+            paused = !paused;
 
         if (e.getKeyCode() == KeyEvent.VK_R && !play)
             restartGame();
     }
 
     public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) moveLeft = false;
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) moveRight = false;
+        if (e.getKeyCode() == KeyEvent.VK_LEFT)
+            moveLeft = false;
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) 
+            moveRight = false;
     }
 
     public void keyTyped(KeyEvent e) {}
@@ -178,7 +188,8 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
                 highScore = Integer.parseInt(br.readLine());
                 br.close();
             }
-        } catch (Exception e) {}
+        } 
+        catch (Exception e) {}
     }
 
     void saveHighScore() {
@@ -186,7 +197,8 @@ public class Breakout extends JPanel implements KeyListener, ActionListener {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write(String.valueOf(highScore));
             bw.close();
-        } catch (Exception e) {}
+        } 
+        catch (Exception e) {}
     }
 
     public static void main(String[] args) {
