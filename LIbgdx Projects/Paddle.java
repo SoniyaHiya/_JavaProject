@@ -1,31 +1,45 @@
 import java.awt.*;
 
+//player paddle
 public class Paddle {
 
-    int x;
+ // Encapsulation
+   private int x;
 
     public Paddle(int x) {
         this.x = x;
     }
 
-    // Original
+    // Getter
+    public int getX() {
+        return x;
+    }
+
+    // Setter
+    public void setX(int x) {
+        this.x = x;
+    }
+
     public void moveLeft() {
-        if (x > 10) x -= 5;
+        if (x > 10)
+            x -= 5;
     }
 
     //  Overloaded
     public void moveLeft(int speed) {
-        if (x > 10) x -= speed;
+        if (x > 10)
+        x -= speed;
     }
 
-    // Original
     public void moveRight() {
-        if (x < 490) x += 5;
+        if (x < 490)
+            x += 5;
     }
 
     //  Overloaded
     public void moveRight(int speed) {
-        if (x < 490) x += speed;
+        if (x < 490) 
+        x += speed;
     }
 
     public void draw(Graphics g) {
