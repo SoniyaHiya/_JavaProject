@@ -1,8 +1,8 @@
 public class LevelManager {
 
-    int level;
+   private int level;
 
-    // Original constructor
+    //  constructor
     public LevelManager() {
         level = 1;
     }
@@ -15,6 +15,10 @@ public class LevelManager {
     public int getLevel() {
         return level;
     }
+    //setter
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public void nextLevel() {
         level++;
@@ -26,10 +30,14 @@ public class LevelManager {
 
     public void increaseSpeed(Ball ball) {
 
-        if (ball.xDir > 0) ball.xDir++;
-        else ball.xDir--;
+        if (ball.xDir > 0)
+            ball.xDir++;
+        else 
+            ball.xDir--;
 
-        if (ball.yDir > 0) ball.yDir++;
-        else ball.yDir--;
+        if (ball.yDir > 0) 
+            ball.yDir++;
+        else 
+            ball.yDir--;
     }
 }
