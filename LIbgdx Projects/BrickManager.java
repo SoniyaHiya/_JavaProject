@@ -1,15 +1,26 @@
 import java.awt.*;
 
 public class BrickManager {
+// Encapsulation
+   private int bricks[][];
+   private int brickWidth = 65,private brickHeight = 20;
 
-    int bricks[][];
-    int brickWidth = 65, brickHeight = 20;
-
-    Color[] mainRowColors = {Color.pink, Color.red, Color.green, Color.blue};
+   private Color[] mainRowColors = {Color.pink, Color.red, Color.green, Color.blue};
 
     public BrickManager() {
         bricks = new int[9][9];
         initialize();
+    }
+
+    public int[][] getBricks(){
+        return bricks;}
+
+    public int getBrickWidth() {
+        return brickWidth;
+    }
+
+    public int getBrickHeight() {
+        return brickHeight;
     }
 
     public void initialize() {
@@ -21,6 +32,9 @@ public class BrickManager {
                 bricks[i][j] = 0;
         }
     }
+    public void setBrickValue(int value, int row, int col) {
+        bricks[row][col] = value;
+    }
 
     public void draw(Graphics g) {
         int startX = 10, startY = 10;
@@ -31,8 +45,10 @@ public class BrickManager {
             for (int j = 0; j < cols; j++) {
                 if (bricks[i][j] == 1) {
 
-                    if (i == 0) g.setColor(Color.cyan);
-                    else if (i == 1) g.setColor(Color.orange);
+                    if (i == 0)
+                    g.setColor(Color.cyan);
+                    else if (i == 1) 
+                    g.setColor(Color.orange);
                     else {
                         int idx = (i - 2) % mainRowColors.length;
                         g.setColor(mainRowColors[idx]);
