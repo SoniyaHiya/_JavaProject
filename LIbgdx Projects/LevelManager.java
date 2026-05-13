@@ -1,3 +1,4 @@
+//Manages the Levels and speed
 public class LevelManager {
 
    private int level;
@@ -11,7 +12,7 @@ public class LevelManager {
    // public LevelManager(int startLevel) {
      //   level = startLevel;
    // }
-
+    //Getter
     public int getLevel() {
         return level;
     }
